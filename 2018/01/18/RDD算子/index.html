@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Spark,大数据," />
 
 
 
@@ -79,17 +79,27 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="RDD的内核算子">
+<meta name="keywords" content="Spark,大数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://HYCarroll.github.io/2018/01/18/hello-world/index.html">
+<meta property="og:title" content="RDD算子">
+<meta property="og:url" content="http://HYCarroll.github.io/2018/01/18/RDD算子/index.html">
 <meta property="og:site_name" content="Carroll`s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="RDD的内核算子">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T03:12:31.342Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20171222092157998?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171222092212904?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171222093224645?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171222100639142?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171222100824602?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171222100854695?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171222101141946?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171222101405049?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-01-18T08:03:57.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="RDD算子">
+<meta name="twitter:description" content="RDD的内核算子">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171222092157998?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -119,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://HYCarroll.github.io/2018/01/18/hello-world/"/>
+  <link rel="canonical" href="http://HYCarroll.github.io/2018/01/18/RDD算子/"/>
 
 
 
 
 
-  <title>Hello World | Carroll`s Blog</title>
+  <title>RDD算子 | Carroll`s Blog</title>
   
 
 
@@ -191,7 +201,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/home" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -216,16 +226,6 @@
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
             分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archive" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://HYCarroll.github.io/2018/01/18/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://HYCarroll.github.io/2018/01/18/RDD算子/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Carroll">
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">RDD算子</h1>
         
 
         <div class="post-meta">
@@ -325,7 +325,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T11:12:31+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T15:15:34+08:00">
                 2018-01-18
               </time>
             
@@ -336,6 +336,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark/" itemprop="url" rel="index">
+                    <span itemprop="name">Spark</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -348,6 +370,10 @@
 
           
 
+          
+              <div class="post-description">
+                  RDD的内核算子
+              </div>
           
 
         </div>
@@ -363,15 +389,38 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <a id="more"></a>
+<p>一般来说，RDD的整个计算过程都是发生在Worker节点中的Executor中的。RDD可以支持三种操作类型：Transformation、Action以及Persist和CheckPoint为代表的控制类型操作。</p>
+<p>RDD一般是从外部数据源读取数据的，经过多次的Transformation（中间应该有Persist和CheckPoint操作），最终通过Action类型的操作将结果写入到外部存储系统。在Spark语言里，CheckPoint用过将RDD写入Disk做检查点，是Spark Lineage容错的辅助，但是Lineage过长的话会让容错的成本变高，这时候在中间阶段做检查点容错，如果之后的所有节点出现问题，可以从检查点的RDD开始重新做Lineage，这样可以减少开销。<br><img src="http://img.blog.csdn.net/20171222092157998?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20171222092212904?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<hr>
+<p>CheckPoint主要适用两种情况：</p>
+<ol>
+<li>DAG中的Lineage过长，如果重新算的话开销非常大，例如PageRank、ALS等</li>
+<li><p>适合与在宽依赖上做CheckPoint，这样可以避免为Lineage重新计算而带来的冗余计算</p>
+<p>默认情况下，每个Transformation过的RDD会在每次Action的时候重新计算一次，然而可以视同Persist（Cache）持久化一个RDD到内存中，进行复用。</p>
+</li>
+</ol>
+<hr>
+<p>RDD的三种操作：</p>
+<ul>
+<li>Transformation ——惰性执行 </li>
+<li>Action —— 触发作业</li>
+<li>操作 持久化<br><img src="http://img.blog.csdn.net/20171222093224645?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+</ul>
+<hr>
+<h2 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h2><p>Transformation是一种算法的描述。<br>标记着需要进行操作的数据，但不是真的进行执行。<br>Transformation具有Lazy特性，操作是延迟计算的。也就是说一个RDD转换成另一个RDD的操作不是马上执行的，需要等到Actions或者CheckPoint时，才会真的触发操作。</p>
+<p>Spark会从后往前顺着Lineage回溯并划分Stage，查看那些RDD触发了计算，从后往前推，这就是Transformation的Lazy特性，这样一个特性有一个很大的好处就是不需要结果是就不让这个作业进行计算，在需要时进行计算，这样可以避免很多不必要的中间临时数据，这比较符合分布式的并行计算需求。<br>从另一个层面来讲，最后一步计算时候，可以看到前面所有步骤，看见的步骤越多，进行优化的机会也就越多，所以Spark是基于Lazy特性进行操作的，基于Lineage来构建整个调度系统，最终形成了DAG。</p>
+<hr>
+<h2 id="一些Transformation操作"><a href="#一些Transformation操作" class="headerlink" title="一些Transformation操作"></a>一些Transformation操作</h2><p>从HDFS中创建RDD<br><img src="http://img.blog.csdn.net/20171222100639142?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<hr>
+<p>从内存中创建RDD<br>    先定义一个数组<br>    <img src="http://img.blog.csdn.net/20171222100824602?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>    通过parallelize方法创建ParallelCollectionRDD<br>    <img src="http://img.blog.csdn.net/20171222100854695?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<hr>
+<p>从其他RDD创建新的RDD<br>    filter函数将distData RDD转换成新的RDD<br>    出发action操作，查看过滤后的内容<br>    注意collection只适合数据量少的时候用<br><img src="http://img.blog.csdn.net/20171222101141946?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<hr>
+<p>注意，Transformation之后不会马上进行操作，要知道出发action才会执行<br>例如distData.filter(e=&gt;e&gt;2) transformation后，它不会立即执行，合适等到distDataFilter.collect方法执行时才被执行<br><img src="http://img.blog.csdn.net/20171222101405049?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTUwOTg3MjZz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<hr>
+<h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><p>reduce<br>count（）<br>first（）<br>take（n）<br>takeSample（）<br>takeOrdered()<br>savaAsTextFile()<br>等操作都是action操作，会实际执行的。</p>
 
       
     </div>
@@ -397,6 +446,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Spark/" rel="tag"><i class="fa fa-tag"></i> Spark</a>
+          
+            <a href="/tags/大数据/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
+          
+        </div>
       
 
       
@@ -478,7 +535,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archive">
+                <a href="/archives">
               
                   <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
@@ -487,7 +544,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -539,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformation"><span class="nav-number">1.</span> <span class="nav-text">Transformation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些Transformation操作"><span class="nav-number">2.</span> <span class="nav-text">一些Transformation操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Action"><span class="nav-number">3.</span> <span class="nav-text">Action</span></a></li></ol></div>
             
 
           </div>

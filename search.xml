@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F01%2F18%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[RDD算子]]></title>
+    <url>%2F2018%2F01%2F18%2FRDD%E7%AE%97%E5%AD%90%2F</url>
+    <content type="text"><![CDATA[一般来说，RDD的整个计算过程都是发生在Worker节点中的Executor中的。RDD可以支持三种操作类型：Transformation、Action以及Persist和CheckPoint为代表的控制类型操作。 RDD一般是从外部数据源读取数据的，经过多次的Transformation（中间应该有Persist和CheckPoint操作），最终通过Action类型的操作将结果写入到外部存储系统。在Spark语言里，CheckPoint用过将RDD写入Disk做检查点，是Spark Lineage容错的辅助，但是Lineage过长的话会让容错的成本变高，这时候在中间阶段做检查点容错，如果之后的所有节点出现问题，可以从检查点的RDD开始重新做Lineage，这样可以减少开销。 CheckPoint主要适用两种情况： DAG中的Lineage过长，如果重新算的话开销非常大，例如PageRank、ALS等 适合与在宽依赖上做CheckPoint，这样可以避免为Lineage重新计算而带来的冗余计算 默认情况下，每个Transformation过的RDD会在每次Action的时候重新计算一次，然而可以视同Persist（Cache）持久化一个RDD到内存中，进行复用。 RDD的三种操作： Transformation ——惰性执行 Action —— 触发作业 操作 持久化 TransformationTransformation是一种算法的描述。标记着需要进行操作的数据，但不是真的进行执行。Transformation具有Lazy特性，操作是延迟计算的。也就是说一个RDD转换成另一个RDD的操作不是马上执行的，需要等到Actions或者CheckPoint时，才会真的触发操作。 Spark会从后往前顺着Lineage回溯并划分Stage，查看那些RDD触发了计算，从后往前推，这就是Transformation的Lazy特性，这样一个特性有一个很大的好处就是不需要结果是就不让这个作业进行计算，在需要时进行计算，这样可以避免很多不必要的中间临时数据，这比较符合分布式的并行计算需求。从另一个层面来讲，最后一步计算时候，可以看到前面所有步骤，看见的步骤越多，进行优化的机会也就越多，所以Spark是基于Lazy特性进行操作的，基于Lineage来构建整个调度系统，最终形成了DAG。 一些Transformation操作从HDFS中创建RDD 从内存中创建RDD 先定义一个数组 通过parallelize方法创建ParallelCollectionRDD 从其他RDD创建新的RDD filter函数将distData RDD转换成新的RDD 出发action操作，查看过滤后的内容 注意collection只适合数据量少的时候用 注意，Transformation之后不会马上进行操作，要知道出发action才会执行例如distData.filter(e=&gt;e&gt;2) transformation后，它不会立即执行，合适等到distDataFilter.collect方法执行时才被执行 Actionreducecount（）first（）take（n）takeSample（）takeOrdered()savaAsTextFile()等操作都是action操作，会实际执行的。]]></content>
+      <categories>
+        <category>Spark</category>
+      </categories>
+      <tags>
+        <tag>Spark</tag>
+        <tag>大数据</tag>
+      </tags>
   </entry>
 </search>
